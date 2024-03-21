@@ -1,0 +1,11 @@
+documents/
+results/lfMsAbund-apiary-samples.rda
+results/lfMsAbund-devel-apiary-samples.rda
+results/lfMsAbund-devel-samples.rda
+results/lfMsAbund-null-samples.rda
+code/archived/
+code/GQ-scratch.R
+data/archived/
+data/gbif-download-oct-21-2023/
+data/cleanMDOccurEffort.csv
+data/geocoded_apiary_locations1718.csv
