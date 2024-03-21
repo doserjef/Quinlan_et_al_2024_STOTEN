@@ -18,21 +18,21 @@ Non-native species have the potential to detrimentally affect native species thr
 
 Contains all code to process data, fit models, and generate figures and results shown in the manuscript. note that the raw data processing files will not run successfully using the files on GitHub, as many of the raw data sets are too large for inclusion on GitHub, or are proprietary (apiary locations). All files will run successfully if run in the order specified by the file names starting from file "3a-main-null.R".  
 
-+ 1a-reclassCDL.R: script to reclass the Cropland Data Layer into the five categories shown in Figure 1 that were used in subsequent analyses (will not run successfully). 
-+ 1b-mdClean.R: script to clean the Maryland data from Sam Droege and colleagues at the USGS (will not run successfully).
-+ 1c-get-apiary-surface.R: script to extract the metric of apiary density across a 100x100m grid of Maryland to generate Figure 1 (will not run successfully).  
-+ 1d-spAbundance-data-prep.R: prepares data into format for fitting a JSDM in `spAbundance` (will not run successfully).
-+ 2-get-inits.R: script to extract initial values from a previous model fit (will not run successfully).
-+ 3a-main-null.R: script to run the null JSDM without either developed landcover or apiary density as covariates in the model. 
-+ 3b-main-developed.R: script to run a JSDM with developed landcover as a covariate in the model.
-+ 3c-main-apiary.R: script to run a JSDM using spAbundance using apiary density as a covariate in the model.
-+ 3d-main-devel-apiary.R: script to run a JSDM using apiary density and developed landcover as covariates in the model.
-+ 4a-combineChains.R: a function to process three chains run separately in `spAbundance` into a single object.
-+ 4b-post-process-chains.R: combines the individual chains that were run in parallel into a single `spAbundance` model object.
-+ 4c-extract-samples.R: script to extract the relevant information from the full `spAbundance` model objects and save in a smaller, more manageable file.
-+ 5-convergence-gof-assessment.R: assess model convergence and goodness of fit for all candidate models.
-+ 6-hierarchical-partitioning.R: script to perform hierarchical partitioning using the four candidate model results.
-+ 7-summary.R: script to summarize all analysis results and generate all figures provided in the manuscript.
++ `1a-reclassCDL.R`: script to reclass the Cropland Data Layer into the five categories shown in Figure 1 that were used in subsequent analyses (will not run successfully). 
++ `1b-mdClean.R`: script to clean the Maryland data from Sam Droege and colleagues at the USGS (will not run successfully).
++ `1c-get-apiary-surface.R`: script to extract the metric of apiary density across a 100x100m grid of Maryland to generate Figure 1 (will not run successfully).  
++ `1d-spAbundance-data-prep.R`: prepares data into format for fitting a JSDM in `spAbundance` (will not run successfully).
++ `2-get-inits.R`: script to extract initial values from a previous model fit (will not run successfully).
++ `3a-main-null.R`: script to run the null JSDM without either developed landcover or apiary density as covariates in the model. 
++ `3b-main-developed.R`: script to run a JSDM with developed landcover as a covariate in the model.
++ `3c-main-apiary.R`: script to run a JSDM using spAbundance using apiary density as a covariate in the model.
++ `3d-main-devel-apiary.R`: script to run a JSDM using apiary density and developed landcover as covariates in the model.
++ `4a-combineChains.R`: a function to process three chains run separately in `spAbundance` into a single object.
++ `4b-post-process-chains.R`: combines the individual chains that were run in parallel into a single `spAbundance` model object.
++ `4c-extract-samples.R`: script to extract the relevant information from the full `spAbundance` model objects and save in a smaller, more manageable file.
++ `5-convergence-gof-assessment.R`: assess model convergence and goodness of fit for all candidate models.
++ `6-hierarchical-partitioning.R`: script to perform hierarchical partitioning using the four candidate model results.
++ `7-summary.R`: script to summarize all analysis results and generate all figures provided in the manuscript.
 
 ### [data/](./data/)
 
