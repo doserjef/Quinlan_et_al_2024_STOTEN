@@ -21,7 +21,7 @@ my.crs <- "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=
 
 # Only grab data from Maryland
 maryland <- st_as_sf(map('state', region = c('maryland'), 
-			 fill = TRUE, plot = FALSE))
+                         fill = TRUE, plot = FALSE))
 maryland.wgs <- maryland %>%
   st_transform(4326)
 # Get all unique coordinates from the data
@@ -29,8 +29,8 @@ coords.df <- occur %>%
   dplyr::select(x = decimalLongitude, y = decimalLatitude) %>%
   unique()
 coords.sf <- st_as_sf(coords.df,
-		      coords = c("x", "y"),
-		      crs = 4326)
+                      coords = c("x", "y"),
+                      crs = 4326)
 # Some simple plots
 # All data in Maryland's bounding box
 ggplot() + 
@@ -47,15 +47,15 @@ coords <- coords.sf.wgs.maryland %>%
 
 # Determine wild bee locations within 6km of a neighboring state ----------
 neighbor.states <- st_as_sf(map('state', region = c('pennsylvania', 'district of columbia', 
-						    'virginia', 'west virginia', 'delaware', 
-						    'new jersey'), fill = TRUE, plot = FALSE))
+                                                    'virginia', 'west virginia', 'delaware', 
+                                                    'new jersey'), fill = TRUE, plot = FALSE))
 neighbor.states.wgs <- neighbor.states %>%
   st_transform(4326)
 # Get distances of each point to the boundary of a neighbor state.
 vals <- matrix(as.numeric(st_geometry(obj = neighbor.states.wgs) %>% 
-			  st_cast(to = 'MULTILINESTRING') %>% 
-			  st_distance(y = coords.sf.wgs.maryland)), 
-	       nrow = nrow(neighbor.states), ncol = nrow(coords.sf.wgs.maryland))
+                            st_cast(to = 'MULTILINESTRING') %>% 
+                            st_distance(y = coords.sf.wgs.maryland)), 
+               nrow = nrow(neighbor.states), ncol = nrow(coords.sf.wgs.maryland))
 # Filter out sites within 6km of a neighboring state
 # Sites within 6km of a neighboring state
 bad.sites <- which(apply(vals, 2, function(a) sum(a < 6000)) > 0)
@@ -92,9 +92,9 @@ occur$genus[occur$genus == ''] <- 'missing'
 dat <- occur %>%
   filter(!sampleProtocol %in% c('pitFall', 'panTrap_pitFall')) %>%
   group_by(decimalLatitude, decimalLongitude, startDate, sampleProtocol, 
-	   day, month, year, genus, nTraps) %>%
+           day, month, year, genus, nTraps) %>%
   summarize(count = n(), 
-	    timeEffort = unique(timeEffort)) %>%
+            timeEffort = unique(timeEffort)) %>%
   pivot_wider(names_from = genus, values_from = count, values_fill = 0) %>%
   group_by(decimalLatitude, decimalLongitude) %>%
   mutate(site = as.factor(cur_group_id())) %>%
@@ -105,8 +105,8 @@ coords.df <- dat %>%
   dplyr::select(x = decimalLongitude, y = decimalLatitude) %>%
   unique()
 coords.sf <- st_as_sf(coords.df,
-		      coords = c("x", "y"),
-		      crs = 4326)
+                      coords = c("x", "y"),
+                      crs = 4326)
 # Convert to aea
 coords.aea <- coords.sf %>%
   st_transform(my.crs)
@@ -122,7 +122,7 @@ K.max <- max(K)
 # Index of columns that hold genus data
 tmp <- dat %>%
   dplyr::select(-decimalLongitude, -decimalLatitude, -startDate, -sampleProtocol, 
-	 -day, -month, -year, -site, -timeEffort)
+                -day, -month, -year, -site, -timeEffort)
 # Genus names
 sp.names <- names(tmp)
 # Number of unique genus. 
@@ -202,11 +202,11 @@ y <- y[-apis.indx, , ]
 sp.names <- dimnames(y)[[1]]
 # Get into data list for spAbundance
 data.list <- list(y = y, 
-		  covs = list(day.random = day.effect, 
-			      protocol = sample.protocol, 
-			      effort = time.effort, 
-			      year = year), 
-		  coords = coords)
+                  covs = list(day.random = day.effect, 
+                              protocol = sample.protocol, 
+                              effort = time.effort, 
+                              year = year), 
+                  coords = coords)
 # Reformat y to improve model fit by putting a common species first
 start.sp <- c('Lasioglossum', 'Megachile', 'Halictus', 'Ceratina', 'Melitoma')
 # Other species code
@@ -237,8 +237,8 @@ coords.apiary <- apiary %>%
   dplyr::select(lon, lat) %>%
   mutate(lat = as.numeric(lat), lon = as.numeric(lon))
 coords.apiary.sf <- st_as_sf(coords.apiary, 
-		      coords = c('lon', 'lat'), 
-		      crs = "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+                             coords = c('lon', 'lat'), 
+                             crs = "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
 apiary.aea <- coords.apiary.sf %>%
   st_transform(my.crs)
 
@@ -327,12 +327,12 @@ for (j in 1:length(vals)) {
 }
 
 covs.prop.land <- data.frame(ag = prop.ag,
-			     devel = prop.devel,
-			     forest = prop.forest,
-			     other = prop.NA,
-			     pasture = prop.pasture)
+                             devel = prop.devel,
+                             forest = prop.forest,
+                             other = prop.NA,
+                             pasture = prop.pasture)
 covs.df <- data.frame(covs.prop.land,
-		      apiary.density = apiary.density)
+                      apiary.density = apiary.density)
 # Devel and apiary are fairly positively correlated
 cor(covs.df)
 
@@ -343,6 +343,5 @@ save(data.list, file = 'data/spAbundance-data.rda')
 # Save data in flat file if desired
 dat.save <- dat %>%
   dplyr::select(decimalLatitude, decimalLongitude, startDate, sampleProtocol, 
-		day, month, year, timeEffort, site, any_of(dimnames(data.list$y)[[1]]))
+                day, month, year, timeEffort, site, any_of(dimnames(data.list$y)[[1]]))
 write.csv(dat.save, file = 'data/data-spAbundance-flat.csv', row.names = FALSE)
-

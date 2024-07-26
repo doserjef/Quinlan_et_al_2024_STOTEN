@@ -12,7 +12,7 @@ library(spAbundance)
 #       script should run successfully. 
 # Null model --------------------------------------------------------------
 load("data/spAbundance-data.rda")
-load("results/lfMsAbund-null-all-chains.rda")
+load("/mnt/disk4/jeff/QDKG23/results/lfMsAbund-null-all-chains.rda")
 
 rhat.vals <- unlist(out$rhat)
 beta.samples <- out$beta.samples
@@ -41,14 +41,14 @@ for (i in 1:N) {
 
 save(beta.samples, beta.star.samples, kappa.samples, rhat.vals,
      y.rep.means, lambda.samples, bpvs, waic.model, log.like.by.sp,
-     file = 'results/lfMsAbund-null-samples.rda')
+     file = '/mnt/disk4/jeff/QDKG23/results/lfMsAbund-null-samples.rda')
 
 rm(y.rep.means, ppc.out, fit.y, fit.y.rep, out)
 gc()
 
 # Apiary only -------------------------------------------------------------
 load("data/spAbundance-data.rda")
-load("results/lfMsAbund-apiary-all-chains.rda")
+load("/mnt/disk4/jeff/QDKG23/results/lfMsAbund-apiary-all-chains.rda")
 
 rhat.vals <- unlist(out$rhat)
 sum(rhat.vals > 1.1)
@@ -79,12 +79,12 @@ for (i in 1:N) {
 
 save(beta.samples, beta.star.samples, kappa.samples, rhat.vals,
      y.rep.means, lambda.samples, bpvs, waic.model, log.like.by.sp,
-     file = 'results/lfMsAbund-apiary-samples.rda')
+     file = '/mnt/disk4/jeff/QDKG23/results/lfMsAbund-apiary-samples.rda')
 rm(y.rep.means, ppc.out, fit.y, fit.y.rep, out)
 gc()
 # Developed only ----------------------------------------------------------
 load("data/spAbundance-data.rda")
-load("results/lfMsAbund-developed-all-chains.rda")
+load("/mnt/disk4/jeff/QDKG23/results/lfMsAbund-developed-all-chains.rda")
 
 rhat.vals <- unlist(out$rhat)
 sum(rhat.vals > 1.1)
@@ -115,13 +115,13 @@ for (i in 1:N) {
 
 save(beta.samples, beta.star.samples, kappa.samples, rhat.vals,
      y.rep.means, lambda.samples, bpvs, waic.model, log.like.by.sp,
-     file = 'results/lfMsAbund-devel-samples.rda')
+     file = '/mnt/disk4/jeff/QDKG23/results/lfMsAbund-devel-samples.rda')
 rm(y.rep.means, ppc.out, fit.y, fit.y.rep, out)
 gc()
 
 # Developed + apiary ------------------------------------------------------
 load("data/spAbundance-data.rda")
-load("results/lfMsAbund-devel-apiary-all-chains.rda")
+load("/mnt/disk4/jeff/QDKG23/results/lfMsAbund-devel-apiary-all-chains.rda")
 
 rhat.vals <- unlist(out$rhat)
 sum(rhat.vals > 1.1)
@@ -152,7 +152,7 @@ for (i in 1:N) {
 
 save(beta.samples, beta.star.samples, kappa.samples, rhat.vals,
      y.rep.means, lambda.samples, bpvs, waic.model, log.like.by.sp, 
-     file = 'results/lfMsAbund-devel-apiary-samples.rda')
+     file = '/mnt/disk4/jeff/QDKG23/results/lfMsAbund-devel-apiary-samples.rda')
 rm(y.rep.means, ppc.out, fit.y, fit.y.rep, out)
 gc()
 

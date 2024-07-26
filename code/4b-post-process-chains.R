@@ -17,7 +17,7 @@ source("code/4a-combineChains.R")
 
 # Directory to save results files -----------------------------------------
 # Change as necessary
-out.dir <- 'results/'
+out.dir <- '/mnt/disk4/jeff/QDKG23/results/'
 
 # Null model --------------------------------------------------------------
 load(paste0(out.dir, 'lfMsAbund-null-chain-1-2024-02-04.R'))

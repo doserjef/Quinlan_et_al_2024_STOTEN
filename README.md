@@ -41,6 +41,7 @@ Contains the data sets formatted for fitting models in `spAbundance`. Note that 
 + `data-spAbundance-flat.csv`: a flat file of the data needed for fitting models in `spAbundance`. 
 + `reclassMDDC.tiff`: the reclassed CDL data used as covariates in the models.
 + `spAbundance-data.rda`: R data file containing the data necessary for fitting models in `spAbundance`.
++ `developed-for-violin-plot.rda`: some data used to generate the violin plot in Figure S3. 
 
 ### [figures/](.figures/)
 
@@ -56,3 +57,4 @@ Contains some results files generated from the JSDMs fit in `spAbundance`. Note 
 + `inits-apiary.rda`: initial values needed for running `3c-main-apiary.R`. 
 + `inits-developed.rda`: initial values needed for running `3b-main-developed.R`.
 + `inits-null.rda`: initial values needed for running `3a-main-null.R`. 
++ `effect-sizes-apiary-pred.csv`: estimates of wild bee genera relative abundance at values of high and low apiary density (used to generate Figure S4). 
