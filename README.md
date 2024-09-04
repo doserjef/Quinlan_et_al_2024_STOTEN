@@ -1,4 +1,4 @@
-# Estimating genus-specific effects of non-native honey bees and urbanization on wild bee communities in the Eastern United States 
+# Estimating genus-specific effects of non-native honey bees and urbanization on wild bee communities: A case study in Maryland, United States 
 
 ### Gabriela M. Quinlan, Jeffrey W. Doser, Melanie Kammerer, Christina M. Grozinger 
 
