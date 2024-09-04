@@ -246,7 +246,7 @@ fig.s4.plot <- plot.df %>%
             legend.position = c(0.85, 0.25), 
             plot.title = element_text(size = 17),
             legend.background = element_rect(fill = NA))
-ggsave(plot = fig.s4.plot, file = 'figures/Figure-S4.png', device = 'png', 
+ggsave(plot = fig.s4.plot, file = 'figures/Figure-S3.png', device = 'png', 
        units = 'in', height = 8, width = 12)
 
 # Visualize hierarchical partitioning results -----------------------------

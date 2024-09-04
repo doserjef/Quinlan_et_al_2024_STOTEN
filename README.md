@@ -2,7 +2,7 @@
 
 ### Gabriela M. Quinlan, Jeffrey W. Doser, Melanie Kammerer, Christina M. Grozinger 
 
-### In Review
+### Science of the Total Environment 
 
 ### Please contact the first author for questions about the code or data used in the analysis: Gabriela M. Quinlan (gmq5021@psu.edu)
 
@@ -10,7 +10,7 @@
 
 ## Abstract
 
-Non-native species have the potential to detrimentally affect native species through resource competition, disease transmission, and other forms of antagonism. The western honey bee (Apis mellifera) is one such species that has been widely introduced beyond its native range for hundreds of years. There are strong concerns in the United States and other countries around the strain high-density, managed honey bee populations could pose to already imperiled wild bee communities. While there is some experimental evidence of honey bees competing with wild bees for resources, few studies have connected landscape-scale honey bee apiary density with down-stream consequences for wild bee communities. Here, using a unique dataset from Maryland, US and joint species distribution models, we provide the largest scale, most phylogenetically resolved assessment of non-native honey bee density effects on wild bee abundance to date. As Maryland primarily consists of urban beekeeping, we also assessed the relative impact of developed land on wild bee communities. We found poor evidence for negative effects of apiary density on the wild bee community overall, with the strongest evidence for negative effects of urban beekeeping on late-season, specialist genera (e.g., long-horned bees) and small, ground nesting, season-long foragers (e.g., green sweat bees). We also found positive effects of developed land for some genera including invasive Anthidium and other urban garden-associated genera. We additionally discuss methodological insights based on sampling efficiency of different methods (hand netting, pan trapping, vane trapping) across genera. Notably, the effect of apiary density and developed land were small relative to sampling method, so these effects should not be over interpreted. These findings offer some of the best evidence for the effects of managed honey bees on wild bee communities and we discuss several avenues to ameliorate potentially detrimental effects of urban beekeeping on the most imperiled wild bee groups. 
+Non-native species have the potential to detrimentally affect native species through resource competition, disease transmission, and other forms of antagonism. The western honey bee (Apis mellifera) is one such species that has been widely introduced beyond its native range for hundreds of years. There are strong concerns in the United States, and other countries, about the strain that high-density, managed honey bee populations could pose to already imperiled wild bee communities. While there is some experimental evidence of honey bees competing with wild bees for resources, few studies have connected landscape-scale honey bee apiary density with down-stream consequences for wild bee communities. Here, using a dataset from Maryland, US and joint species distribution models, we provide the largest scale, most phylogenetically resolved assessment of non-native honey bee density effects on wild bee abundance to date. As beekeeping in Maryland primarily consists of urban beekeeping, we also assessed the relative impact of developed land on wild bee communities. Six of the 33 wild bee genera we assessed showed a high probability (> 90%) of a negative association with apiary density and/or developed land. These bees were primarily late-season, specialist genera (several long-horned genera represented) or small, ground nesting, season-long foragers (including several sweat bee genera). Conversely, developed land was associated with an increase in relative abundance for some genera including invasive Anthidium and other urban garden-associated genera. We discuss several avenues to ameliorate potentially detrimental effects of beekeeping and urbanization on the most imperiled wild bee groups. We additionally offer methodological insights based on sampling efficiency of different methods (hand netting, pan trapping, vane trapping), highlighting large variation in effect sizes across genera. The magnitude of sampling effect was very high, relative to the observed ecological effects, demonstrating the importance of integrated sampling, particularly for multi-species or community level assessments.
 
 ## Repository Directory
 
@@ -41,7 +41,7 @@ Contains the data sets formatted for fitting models in `spAbundance`. Note that 
 + `data-spAbundance-flat.csv`: a flat file of the data needed for fitting models in `spAbundance`. 
 + `reclassMDDC.tiff`: the reclassed CDL data used as covariates in the models.
 + `spAbundance-data.rda`: R data file containing the data necessary for fitting models in `spAbundance`.
-+ `developed-for-violin-plot.rda`: some data used to generate the violin plot in Figure S3. 
++ `developed-for-violin-plot.rda`: some data used to generate the violin plot in Figure S2. 
 
 ### [figures/](.figures/)
 
@@ -57,4 +57,4 @@ Contains some results files generated from the JSDMs fit in `spAbundance`. Note 
 + `inits-apiary.rda`: initial values needed for running `3c-main-apiary.R`. 
 + `inits-developed.rda`: initial values needed for running `3b-main-developed.R`.
 + `inits-null.rda`: initial values needed for running `3a-main-null.R`. 
-+ `effect-sizes-apiary-pred.csv`: estimates of wild bee genera relative abundance at values of high and low apiary density (used to generate Figure S4). 
++ `effect-sizes-apiary-pred.csv`: estimates of wild bee genera relative abundance at values of high and low apiary density (used to generate Figure S3). 

@@ -198,6 +198,7 @@ sp.names <- dimnames(y)[[1]]
 # Create spAbundance data list --------------------------------------------
 # Remove Apis
 apis.indx <- which(sp.names == 'Apis')
+apis.counts <- y[apis.indx, , ]
 y <- y[-apis.indx, , ]
 sp.names <- dimnames(y)[[1]]
 # Get into data list for spAbundance
@@ -275,6 +276,35 @@ ggplot() +
   geom_sf(data = apiary.coords.sf, col = 'red')
 
 data.list$covs$apiary.density <- apiary.density 
+
+# Generate boxplot of apiary density with apis counts from wild bee data set
+plot.data <- data.frame(apis.counts = apply(apis.counts, 1, sum, na.rm = TRUE), 
+                        apiary.density = data.list$covs$apiary.density)
+ggplot(data = plot.data, aes(x = apiary.density, y = apis.counts)) + 
+  geom_point() + 
+  theme_bw(base_size = 16) + 
+  labs(x = 'Apiary density', y = 'Total observed Apis counts per site') +
+  theme(text = element_text(family = 'LM Roman 10'), 
+        plot.title = element_text(size = 16),
+        panel.grid = element_blank()) 
+# ggsave(file = 'figures/apis-figure.png', device = 'png',
+#        units = 'in', width = 7, height = 5)
+
+# Sites with very high Apis counts
+big.apis.indx <- which(plot.data$apis.counts > 15)
+# Lots of variation in the counts over different sampling periods at each big site
+apis.counts[big.apis.indx, ]
+# All the big counts occurred in 2017
+data.list$covs$year[big.apis.indx, ]
+coords.sf$big.apis <- 0
+coords.sf$big.apis[big.apis.indx] <- 1
+coords.sf$big.apis <- factor(coords.sf$big.apis)
+
+
+ggplot() + 
+  geom_sf(data = maryland.aea) + 
+  geom_sf(data = coords.sf, aes(col = big.apis)) + 
+  scale_color_viridis_d()
 
 # Calculate four landcover variables around apiary locations --------------
 # Key:

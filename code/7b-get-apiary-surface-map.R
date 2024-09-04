@@ -249,4 +249,4 @@ devel.violin.plot <- ggplot(data = plot.df, aes(x = type, y = devel, fill = type
         panel.grid = element_blank())
 
 apiary.violin.plot + devel.violin.plot
-ggsave(file = 'figures/Figure-S3.png', units = 'in', width = 12, height = 6, bg = 'white')
+ggsave(file = 'figures/Figure-S2.png', units = 'in', width = 12, height = 6, bg = 'white')
