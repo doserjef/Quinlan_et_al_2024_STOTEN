@@ -4,6 +4,8 @@
 
 ### Science of the Total Environment 
 
+### Code/Data DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13695107.svg)](https://doi.org/10.5281/zenodo.13695107)
+
 ### Please contact the first author for questions about the code or data used in the analysis: Gabriela M. Quinlan (gmq5021@psu.edu)
 
 ---------------------------------
